@@ -23,8 +23,8 @@ params:
   
   editPost:
     URL: "https://github.com/mhyrzt/mhyrzt.github.io/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
 
   homeInfoParams:
     Title: "👋 Hello There!"
@@ -35,12 +35,19 @@ params:
       url: "https://github.com/mhyrzt"
     - name: linkedin
       url: "https://www.linkedin.com/in/mhyrzt/"
-    - name: youtube
-      url: ""
-    - name: cv
-      url: "https://docs.google.com/document/d/1NEfjIoecvo-bTfJhB36kjLjgoXh0lrU5VWSnncQDMHM/edit?usp=sharing"
+    # - name: youtube
+    #   url: ""
+    # - name: cv
+    #   url: ""
     - name: buymeacoffee
       url: "https://www.coffeebede.com/mhyrzt"
+  
+  assets:
+    disableHLJS: true
+    favicon: "/favicon/favicon.ico"
+    favicon16x16: "/favicon/favicon-16x16.png"
+    favicon32x32: "/favicon/favicon-32x32.png"
+    apple_touch_icon: "/favicon/apple-touch-icon.png"
 
 menu:
   main:
@@ -53,6 +60,10 @@ menu:
     - identifier: search
       name: Search
       url: /search/
+    - identifier: about
+      name: About Me
+      url: /about/
+
 
 outputs:
   home:
