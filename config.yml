@@ -44,9 +44,6 @@ params:
 
 menu:
   main:
-    - identifier: categories
-      name: Categories
-      url: /categories/
     - identifier: tags
       name: Tags
       url: /tags/
