@@ -9,7 +9,7 @@ params:
   env: production
   author: Mahyar Riazati
   keyowrds: [Blog, Portfolio, Mahyar, mhyrzt, Riazati]
-  defaultThme: light
+  defaultTheme: light
 
   ShowToc: true
   ShowBreadCrumbs: true
