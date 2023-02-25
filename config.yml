@@ -3,18 +3,33 @@ languageCode: en-us
 title: Mahyar Riazati Blog
 theme: "PaperMod"
 
+enableRobotsTXT: true
 
 params:
+  env: production
+  author: Mahyar Riazati
+  keyowrds: [Blog, Portfolio, Mahyar, mhyrzt, Riazati]
+  defaultThme: light
+
+  ShowToc: true
+  ShowBreadCrumbs: true
   ShowReadingTime: true
   ShowShareButtons: true
-  disableScrollToTop: false
-  UseHugoToc: true
-  showtoc: false
-  tocopen: false
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+
+  comments: false
+  
+  editPost:
+    URL: "https://github.com/mhyrzt/mhyrzt.github.io/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
 
   homeInfoParams:
     Title: "👋 Hello There!"
     Content: '> "*Writing is utter solitude, the descent into the cold abyss of oneself.*" -Franz Kafka'
+
   socialIcons:
     - name: github
       url: "https://github.com/mhyrzt"
@@ -23,8 +38,9 @@ params:
     - name: youtube
       url: ""
     - name: cv
-      url: ""
-
+      url: "https://docs.google.com/document/d/1NEfjIoecvo-bTfJhB36kjLjgoXh0lrU5VWSnncQDMHM/edit?usp=sharing"
+    - name: buymeacoffee
+      url: "https://www.coffeebede.com/mhyrzt"
 
 menu:
   main:
@@ -37,4 +53,12 @@ menu:
     - identifier: archive
       name: Archive
       url: /archives/
+    - identifier: search
+      name: Search
+      url: /search/
 
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
