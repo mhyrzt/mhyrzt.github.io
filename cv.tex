@@ -1,0 +1,444 @@
+%-------------------------
+% Resume in Latex
+% Author : Aras Gungore
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{hyphenat}
+\usepackage{fontawesome}
+\usepackage{academicons}
+\input{glyphtounicode}
+
+%---------- FONT OPTIONS ----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeEducationHeading}[6]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeOrganizationHeading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small#3}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%---------- HEADING ----------
+\begin{center}
+	\textbf{\Huge \scshape Mahyar Riazati} \\ \vspace{8pt}
+	\small
+	\faEnvelope \hspace{.5pt} \href{mailto:mhyrzt@gmail.com}{mhyrzt@gmail.com}
+	$|$
+	\faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/mhyrzt}{LinkedIn}
+	$|$
+	\faGithub \hspace{.5pt} \href{https://github.com/mhyrzt}{GitHub}
+	$|$
+	\faGlobe \hspace{.5pt} \href{https://mhyrzt.me}{Portfolio}
+	$|$
+	\faGraduationCap \hspace{.5pt} \href{https://scholar.google.com/citations?user=k-nwlcYAAAAJ&hl=en}{Google Scholar}
+	$|$
+	\faMapMarker \hspace{.5pt} Tehran, Iran
+\end{center}
+
+
+
+%----------- EDUCATION -----------
+
+\section{Education}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+\resumeEducationHeading
+{Tehran University}{Tehran, Iran}
+{M.Sc. in Electrical Engineering - Telecommunication Systems; \textbf{GPA: 3.5/4.00}}{Sep 2022 \textbf{--} Jan 2024}
+{} {}
+\resumeSubHeadingListStart
+\small{\item{\textbf{Thesis:} Under the supervision of \href{https://ece.ut.ac.ir/en/~mnili}{\color{blue}Dr.Majid Nili Ahmad Abadi}}}
+\resumeSubHeadingListEnd
+
+\resumeEducationHeading
+{Islamic Azad University - South Tehran Branch}{Tehran, Iran}
+{B.Sc. in Electrical and Telecommunication Engineering; \textbf{GPA: 3.103/4.00}}{Sep 2017 \textbf{--} Jan 2022}
+{} {}
+\resumeSubHeadingListStart
+\small{\item{\textbf{Undergrad Project:} Face Landmark Detection for Android Devices Under the supervision of  \href{https://www.linkedin.com/in/sedigheh-ghofrani-b6495b63/}{\color{blue}Dr.Sedigheh Ghofrani}}}
+\resumeSubHeadingListEnd
+
+\resumeSubHeadingListEnd
+
+
+
+%----------- SKILLS -----------
+
+\section{Skills}
+\vspace{2pt}
+\resumeSubHeadingListStart
+\small{\item{
+	            \textbf{AI:}{ scikit-learn, numpy, pandas, PyTorch, OpenCV, Image Processing, Fuzzy Logic, Reinforcement Learning} \\ \vspace{3pt}
+	            \textbf{EE:}{ Altium Designer, Arduino, AVR, ESP32, MATLAB, Simulink, DSP} \\ \vspace{3pt}
+	            \textbf{SE:}{ FP, OOP, TDD, C/C++, Python, Java, Android } \\ \vspace{3pt}
+	            \textbf{DB:}{ PostgreSQL, MySQL, MongoDB, MinioDB  } \\ \vspace{3pt}
+	            \textbf{Tools:}{ git, GNUMake, CMake, Docker, Unity  } \\ \vspace{3pt}
+	            \textbf{Back-End:}{ Flask, Django + DRF,  Node.JS, express, php } \\ \vspace{3pt}
+	            \textbf{Front-End:}{ HTML, CSS, SCSS, JS, TS, React/Next, Cypress, React Testing Library } \\ \vspace{3pt}
+	      }}
+\resumeSubHeadingListEnd
+
+
+
+%----------- WORK EXPERIENCE -----------
+
+\section{Work Experience}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{\href{https://quera.org/}{\color{blue}Quera}}{Tehran, Iran}
+{Bootcamp Mentor and Instructor}{Jul 2022 \textbf{--} Nov 2022, Full-time}
+\resumeItemListStart
+\resumeItem{Assisted in planning, course component selection, and problem design for data science Bootcamp.}
+\resumeItem{Instructor of Numpy, Pandas, SQL, Fundamental Concepts of Supervised and Unsupervised Learning and Artificial Neural Networks.}
+\resumeItem{Responsible for Planning, course component selection, and problem design for a front-end development Bootcamp.}
+\resumeItem{Taught WebAPIs, WebSockets, and React Router.}
+\resumeItemListEnd
+\resumeSubSubheading{Front-End College Section Chief}{Dec 2021 \textbf{--} Nov 2022, Full-Time}
+\resumeItemListStart
+\resumeItem{Maintained Two major courses on front-end development \& React.js with more than 3000 participants.}
+\resumeItem{Revised technical contents of the course and the problems given to the participants based on the up-to-date needs of the tech industry, resulting in a 50\% increase in the NPS score of the front-end college.}
+\resumeItemListEnd
+\resumeSubSubheading{Programming Contest Designer}{Sep 2021 \textbf{--} Nov 2022, Full-Time}
+\resumeItemListStart
+\resumeItem{Responsible for planning and designing a programming recruitment contest on React.js for Mofid Securities for more than 1500 participants.}
+\resumeItem{Advisor and technical assistant of DigiKala programming contests.}
+\resumeItem{Developed an online judgment system for mobile app developments with React Native.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+
+%----------- RESEARCH EXPERIENCE -----------
+
+\section{Research Experience}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Cognitive Systems Lab at Tehran University}{Tehran, Iran}
+{Research Assistant}{May 2023 \textbf{--} Present, Full-time}
+\resumeItemListStart
+\resumeItem{Developing Bunch of stuffs}
+\resumeItemListEnd
+
+\resumeSubheading
+{Artificial Creatures Lab at Sharif University of Technology}{Tehran, Iran}
+{Research Assistant}{Mar 2022 \textbf{--} Present, Part-time}
+\resumeItemListStart
+\resumeItem{Collaborated within a dynamic research team led by \href{https://ee.sharif.edu/~bagheri-s/}{\color{blue}Dr.Saeed Bagheri Shouraki} to develop innovative algorithms aimed at expediting and enhancing the stability of training processes. Transformed the initial goal of finding a method into developing a sophisticated algorithm for transferring learned insights from one problem to another. Leveraged sidechannels data from expert agents to optimize and augment the efficiency of knowledge transfer mechanisms.}
+\resumeItem{Organized the code written by the research group members and the results of experiments into a repository.}
+\resumeItem{Developed various modules for Reinforcement Learning applications such as DQN to make the codebase more uniform and reliable.}
+\resumeItem{Discovered a new method inspired by Ink Drop Spread (IDS) from fuzzy logic that led to a 50 percent optimization in the training process and increased the stability of the Q-Learning process.}
+\resumeItem{Developed a customizable environment with Unity Engine and MLAgents.}
+\resumeItem{Developed a pipeline with a simple and user-friendly interface to run the experiments faster and easier. (\href{https://github.com/alighandij/Ex-RL-virtual-lab}{\color{blue}GitHub})}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%----------- PUBLICATIONS -----------
+\section{Publications}
+\vspace{3pt}
+\resumeItemListStart
+\resumeItem{A. Ghandi, S. B. Shouraki, I. Gholampour, A. Kamranian, and \textbf{M. Riazati}, "Ex-RL: Experience-based reinforcement learning," \emph{Information Sciences}, vol. 689, p. 121479, 2025, doi: \href{https://doi.org/10.1016/j.ins.2024.121479}{\color{blue}10.1016/j.ins.2024.121479.}}
+
+\resumeItem{A. Ghandi, S. B. Shouraki and \textbf{M. Riazati}, "Deep ExRL: Experience-Driven Deep Reinforcement Learning in Control Problems," \emph{2024 12th Iran Workshop on Communication and Information Theory (IWCIT)}, Tehran, Iran, Islamic Republic of, 2024, pp. 1-6, doi: \href{https://doi.org/10.1109/IWCIT62550.2024.10552959}{\color{blue}10.1109/IWCIT62550.2024.10552959.}}
+\resumeItemListEnd
+
+%----------- AWARDS & ACHIEVEMENTS -----------
+
+% \section{Awards \& Achievements}
+% \vspace{2pt}
+% \resumeSubHeadingListStart
+% \small{\item{
+% \textbf{High Honors Degree:}{ Awarded to Bachelor alumni who have graduated with a GPA greater than or equal to 3.50 by Boğaziçi University. (Jul 2023)} \\ \vspace{3pt}
+
+% \textbf{TÜBİTAK 2247-C Intern Researcher Scholarship:}{ Awarded to undergraduate students who take part in research projects carried out by the Scientific and Technological Research Council of Turkey (TÜBİTAK). (Dec 2021 \textbf{--} Jun 2022)} \\ \vspace{3pt}
+
+% \textbf{National University Admission Exam (YKS):}{ Ranked $75^{th}$ in Mathematics and Science among ca. 2.3 million candidates with a test score of 489.92/500. (Jul 2018)} \\ \vspace{3pt}
+
+% \textbf{KYK Outstanding Success Scholarship:}{ Awarded to undergraduate students who have been ranked in the top 100 on National University Admission Exam by Higher Education Credit and Hostels Institution (KYK). (Sep 2018 \textbf{--} Jun 2023)} \\ \vspace{3pt}
+
+% \textbf{Boğaziçi University Success Scholarship:}{ Awarded to undergraduate students who have been ranked in the top 100 on National University Admission Exam by Boğaziçi University. (Sep 2018 \textbf{--} Jun 2023)} \\ \vspace{3pt}
+
+% \textbf{Duolingo English Test (DET):}{ Overall Score: 135/160} \\ \vspace{3pt}
+
+% \textbf{Boğaziçi University English Proficiency Test (BUEPT):}{ Achieved the highest grade A on the BUEPT grading scheme with a total score in the range of 85-100.} \\ \vspace{3pt}
+
+% \textbf{Kocaeli Science High School Salutatorian Award:}{ Graduated as the second-highest ranked student in my class.}
+% }}
+% \resumeSubHeadingListEnd
+
+
+
+%----------- PROJECTS -----------
+
+\section{Projects}
+\vspace{3pt}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{
+	\textbf{Koch Snowflake}
+	$|$ \emph{\href{https://github.com/mhyrzt/KochSnowFlake}{\color{blue}GitHub}}
+	$|$ \emph{\href{https://mhyrzt.github.io/KochSnowFlake/}{\color{blue}Website}}
+}
+{}
+\resumeItemListStart
+\resumeItem{Developed an interactive web application using React and TypeScript for generating Koch snowflakes, a visually intricate fractal pattern.}
+\resumeItem{Implemented a dynamic user interface allowing real-time adjustments to parameters such as iteration levels and line lengths, providing an engaging user experience.}
+\resumeItem{Translated the recursive Koch snowflake algorithm into efficient TypeScript code, striking a balance between performance and readability.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{
+	\textbf{Elementary Cellular Automaton}
+	$|$ \emph{\href{https://github.com/mhyrzt/elementary-cellular-automaton}{\color{blue}GitHub}}
+	$|$ \emph{\href{https://mhyrzt.github.io/elementary-cellular-automaton/}{\color{blue}Website}}
+}
+{}
+\resumeItemListStart
+\resumeItem{A React.js Project enabling the generation of \href{https://en.wikipedia.org/wiki/Elementary_cellular_automaton}{\color{blue} Elementary Cellular Automataton} with various rules and sizes. }
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{ALOHASIM} $|$ \emph{\href{https://github.com/mhyrzt/ALOHASIM}{\color{blue}GitHub}}}{}
+\resumeItemListStart
+\resumeItem{Conducted a comprehensive simulation of the ALOHA Protocol as a key component of a Telecommunication Undergraduate course project.}
+\resumeItem{Implemented a dynamic visualization of node interactions using the pygame framework, providing a clear and engaging representation of the protocol's functioning.}
+\resumeItemListEnd
+
+
+\resumeProjectHeading
+{\textbf{DLIB Android Face Landmark Detection} $|$ \emph{\href{https://github.com/mhyrzt/Dlib-Android-Face-Landmark}{\color{blue}GitHub}}}{}
+\resumeItemListStart
+\resumeItem{Spearheaded my final undergraduate project under the guidance of \href{https://www.linkedin.com/in/sedigheh-ghofrani-b6495b63/}{\color{blue}Dr. Sedigheh Ghofrani}, dedicated to implementing face landmark detection on Android devices.}
+\resumeItem{Leveraged Java to craft the user interface and implement critical functionalities.}
+\resumeItem{Employed the OpenCV Java Library for proficient image processing and editing.}
+\resumeItem{Seamlessly integrated the dlib library, crafted in C++, by harnessing the NDK within the Java framework. Utilized C++ and CMake to enable 68-point face landmark detection on Android devices.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Unity MountainCar 2D} $|$ \emph{\href{https://github.com/mhyrzt/UnityMountainCar2D}{\color{blue}GitHub}}}{}
+\resumeItemListStart
+\resumeItem{Developed Unity Mountain Car 2D as part of my research assistant role in Artificial Creature Labs.}
+\resumeItem{Crafting a 2D version of the Mountain Car problem within the Unity framework.}
+\resumeItem{Utilizing Unity ML-Agents Toolkit to enable reinforcement learning in the 2D environment.}
+\resumeItem{Providing flexibility by allowing adjustments to the position of the goal, adding height offsets, changing gravity, and fine-tuning car properties such as mass and force.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{PrecoderNet} $|$ \emph{\href{https://github.com/mhyrzt/PrecoderNet}{\color{blue}GitHub}}}{}
+\resumeItemListStart
+\resumeItem{Implemented "PrecoderNet: Hybrid Beamforming for Millimeter Wave Systems with Deep Reinforcement Learning" paper using a DDPG model.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Simple Multi Agent Deep Reinforcement Learning Chess} $|$ \emph{\href{https://github.com/mhyrzt/Simple-MADRL-Chess}{\color{blue}GitHub}}}{}
+\resumeItemListStart
+\resumeItem{Developed a chess environment using Pygame for a fun holiday project.}
+\resumeItem{Applied the Proximal Policy Optimization (PPO) algorithm to solve the chess environment, excluding en passant and castling moves.}
+\resumeItem{Trained two agents with separate neural networks, engaging in self-play to enhance their gameplay.}
+\resumeItem{Trained a single agent with a singular neural network, capable of playing both white and black pieces through joint training.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+
+%----------- RELEVANT COURSEWORK -----------
+
+\section{Relevant Coursework}
+\vspace{2pt}
+\resumeSubHeadingListStart
+\small{\item{
+	            \textbf{M.Sc. coursework:}{ Stochastic Processes, Advance Digital Signal Processing, Convex Optimization, Machine Learning, Reinforcement Learning, Foundational Models in NLP, Advance Telecommunication Theory} \\ \vspace{3pt}
+	            \textbf{B.Sc. coursework:}{ Electrical Circuits I-II, Probability Theory, Electronics I-II, Signals and Systems, Digital System Design I-II, Electromagnetic, Fields \& Waves, Microwave, Antenna, Linear Control, Principals of Communication Systems, Digital Signal Processing, Digital Communications, Telecommunication Networks } \\ \vspace{3pt}
+	      }}
+\resumeSubHeadingListEnd
+
+
+
+%----------- CERTIFICATES -----------
+
+\section{Certificates}
+\resumeSubHeadingListStart
+
+\resumeOrganizationHeading
+{Reinforcement Learning Specialization}{Jun 2021}{\href{https://coursera.org/share/38a7e63a9ebdbc73df6e85bcc6e10280}{\color{blue} Coursera \textbf{--} University of Alberta}}
+
+\resumeOrganizationHeading
+{Generative Adversarial Networks Specialization}{Jun 2021}{\href{https://coursera.org/share/f9336c54f7b154755888c616512824b8}{\color{blue} Coursera \textbf{--} DeepLearning.ai}}
+
+\resumeOrganizationHeading
+{Mathematics for Machine Learning: Linear Algebra}{Apr 2021}{\href{https://www.coursera.org/account/accomplishments/certificate/4Q3SNCJBQQ2D}{\color{blue}Coursera \textbf{--} Imperial College London}}
+
+\resumeOrganizationHeading
+{Deep Learning Specialization}{Mar 2021}{\href{https://www.coursera.org/account/accomplishments/specialization/certificate/ZVSQTA78X4DK}{\color{blue} Coursera \textbf{--} DeepLearning.ai}}
+
+
+\resumeOrganizationHeading
+{Proffessional Project-Oriented Course in Backend Development with Django} {Oct 2020}
+{\href{https://quera.org/certificate/LcnssaOX/}{\color{blue}Quera}}
+
+
+\resumeOrganizationHeading
+{Advance Algorithmic Thinking and Data structure} {Oct 2020}
+{\href{https://quera.org/certificate/TutKPvCg/}{\color{blue}Quera}}
+
+\resumeOrganizationHeading
+{Project-Oriented Course in Web Development with PHP} {May 2020}
+{\href{https://quera.org/certificate/Au1OnMWM/}{\color{blue}Quera}}
+
+\resumeOrganizationHeading
+{Advance Python Programming and Object-Oriented Thinking Course} {May 2020}
+{\href{https://quera.org/certificate/Au1OnMWM/}{\color{blue}Quera}}
+
+\resumeSubHeadingListEnd
+
+
+
+%----------- ORGANIZATIONS -----------
+
+% \section{Organizations}
+% \resumeSubHeadingListStart
+
+% \resumeOrganizationHeading
+% {Institute of Electrical and Electronics Engineers (IEEE)}{Feb 2022 -- Present}{Student Member}
+
+% \resumeSubHeadingListEnd
+
+
+
+%----------- HOBBIES -----------
+
+% \section{Hobbies}
+% \resumeSubHeadingListStart
+% \small{\item{Anime, Manga, Video Games, Cafe, YouTube, Learning new Stuffs}}
+% \resumeSubHeadingListEnd
+
+
+
+%----------- REFERENCES -----------
+
+\section{References}
+\vspace{2pt}
+\resumeSubHeadingListStart
+\item{References available upon request.}
+\resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
