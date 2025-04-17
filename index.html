@@ -4,6 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🕹️ Mahyar</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Mahyar Riazati - Computer Science & Electrical Engineering Master’s student. AI, ML, and software development enthusiast." />
+    <meta name="keywords" content="Mahyar Riazati, AI, ML, Software Engineer, Computer Science, Electrical Engineering, Meta-Learning, Reinforcement Learning" />
+    <meta name="author" content="Mahyar Riazati" />
+
+    <!-- Open Graph Meta (for social media previews) -->
+    <meta property="og:title" content="Mahyar Riazati" />
+    <meta property="og:description" content="Computer Science & Electrical Engineering Master’s student. AI, ML, and software development enthusiast." />
+    <meta property="og:image" content="https://yourdomain.com/me.jpg" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mahyar Riazati" />
+    <meta name="twitter:description" content="Computer Science & Electrical Engineering Master’s student." />
+    <meta name="twitter:image" content="https://yourdomain.com/me.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Preload important assets -->
+    <link rel="preload" as="image" href="me.jpg" type="image/jpeg" />
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -18,7 +43,9 @@
       })(window, document, "script", "dataLayer", "GTM-5FKQ33VG");
     </script>
     <!-- End Google Tag Manager -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+    <!-- Fonts and Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -40,54 +67,78 @@
         },
       };
     </script>
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mahyar Riazati",
+      "url": "https://mhyrzt.me/",
+      "image": "https://mhyrzt.me/me.jpg",
+      "sameAs": [
+        "https://github.com/mhyrzt/",
+        "https://www.linkedin.com/in/mhyrzt/",
+        "https://scholar.google.com/citations?user=k-nwlcYAAAAJ&hl=en"
+      ],
+      "jobTitle": "Master’s Student in Electrical Telecommunication Systems Engineering",
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Tehran"
+      }
+    }
+    </script>
   </head>
+
   <body
     class="bg-black text-gray-50 flex items-center justify-center h-screen font-cmu"
   >
-    <div class="text-center">
+    <main class="text-center">
       <img
         src="me.jpg"
-        alt="This is Me"
+        alt="Portrait of Mahyar Riazati, AI and software enthusiast"
         class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-gray-400 p-1"
       />
       <h1 class="text-3xl font-bold mb-4">Mahyar Riazati</h1>
       <p class="text-gray-400 mb-6">I love computers ツ</p>
-      <div class="flex justify-center space-x-6">
+
+      <nav aria-label="Social links" class="flex justify-center space-x-6">
         <a
           href="mahyar-riazati-cv.pdf"
           title="CV"
           class="text-gray-400 hover:text-gray-50 transition-colors duration-200"
-          ><i class="far fa-file-alt fa-lg"></i
-        ></a>
+          ><i class="far fa-file-alt fa-lg"></i></a
+        >
         <a
           href="https://github.com/mhyrzt/"
           title="GitHub"
           class="text-gray-400 hover:text-gray-50 transition-colors duration-200"
-          ><i class="fab fa-github fa-lg"></i
-        ></a>
+          ><i class="fab fa-github fa-lg"></i></a
+        >
         <a
           href="https://scholar.google.com/citations?user=k-nwlcYAAAAJ&hl=en"
           title="Google Scholar"
           class="text-gray-400 hover:text-gray-50 transition-colors duration-200"
-          ><i class="fas fa-graduation-cap fa-lg"></i
-        ></a>
+          ><i class="fas fa-graduation-cap fa-lg"></i></a
+        >
         <a
           href="https://www.linkedin.com/in/mhyrzt/"
           title="LinkedIn"
           class="text-gray-400 hover:text-gray-50 transition-colors duration-200"
-          ><i class="fab fa-linkedin fa-lg"></i
-        ></a>
-      </div>
-    </div>
+          ><i class="fab fa-linkedin fa-lg"></i></a
+        >
+      </nav>
+    </main>
+
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
+    <noscript>
+      <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-5FKQ33VG"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
+      ></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>
