@@ -1,0 +1,50 @@
+export const identity = {
+  name: 'Mahyar Riazati',
+  url: 'https://mhyrzt.github.io',
+  email: 'mhyrzt@gmail.com',
+  description: 'Software engineering, infrastructure, and reinforcement-learning research. Selected work and notes from Mahyar Riazati.',
+  cv: 'https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/mahyar-riazati-cv.pdf',
+};
+
+export const cvProfiles = [
+  { id: 'engineering', prompt: 'what you build', label: 'Engineering CV', filename: 'mahyar-riazati-cv.pdf' },
+  { id: 'research', prompt: 'what you research', label: 'Research CV', filename: 'mahyar-riazati-research-cv.pdf' },
+  { id: 'full', prompt: 'the whole story', label: 'Full CV', filename: 'mahyar-riazati-master-cv.pdf' },
+] as const;
+export const cvDownload = (filename: string) => `https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/${filename}`;
+
+export const projects = [
+  {
+    name: 'XRAT', field: 'Networking / systems', subtitle: 'A little more control over the connection.',
+    description: 'Importing proxy configurations is the easy part. Finding a working connection, understanding failures, and keeping it running is the problem XRAT addresses.',
+    contribution: 'I develop the Rust CLI, TUI, web interface, and reusable SDK: subscription parsing, concurrent HTTP latency probes, persistent measurements, and daemon-supervised connections with health-based rotation.',
+    stack: 'Rust · CLI / TUI / Web · Xray-core · sing-box',
+    source: 'https://github.com/mhyrzt/xrat', docs: 'https://mhyrzt.github.io/xrat/',
+  },
+  {
+    name: 'OGym', field: 'Reinforcement learning / tooling', subtitle: 'Environments with explicit boundaries.',
+    description: 'A Rust-native environment library for reinforcement-learning experiments, with typed action and observation spaces instead of untyped adapters.',
+    contribution: 'I implemented shared environment abstractions, batch execution, and environments across native Rust, Rapier, and MuJoCo backends. The benchmark suite includes methodology and raw measurements for comparisons with Gymnasium.',
+    stack: 'Rust · Typed spaces · Rapier · MuJoCo',
+    source: 'https://github.com/mhyrzt/ogym', docs: 'https://mhyrzt.github.io/ogym/',
+  },
+  {
+    name: 'Mahfel', field: 'Real-time / collaboration', subtitle: 'A shared room, on your own infrastructure.',
+    description: 'A self-hosted meeting and collaboration platform with a Farsi-first interface. An ongoing engineering project, with audio/video, shared notes, whiteboards, and recordings.',
+    contribution: 'I develop Rust services and a Next.js interface, connecting WebRTC media, application signaling, background jobs, and shared storage. The architecture separates API, media, and worker responsibilities.',
+    stack: 'Rust · Next.js · WebRTC · PostgreSQL',
+    source: 'https://github.com/mhyrzt/mahfel', docs: 'https://github.com/mhyrzt/mahfel/tree/main/docs',
+  },
+] as const;
+
+export const publications = [
+  { title: 'Ex-RL: Experience-based reinforcement learning', authors: 'A. Ghandi, S. B. Shouraki, I. Gholampour, A. Kamranian, M. Riazati', venue: 'Information Sciences · Vol. 689, 121479 · 2025', url: 'https://doi.org/10.1016/j.ins.2024.121479' },
+  { title: 'Deep ExRL: Experience-Driven Deep Reinforcement Learning in Control Problems', authors: 'A. Ghandi, S. B. Shouraki, M. Riazati', venue: 'IWCIT · pp. 1–6 · 2024', url: 'https://doi.org/10.1109/IWCIT62550.2024.10552959' },
+] as const;
+
+export const elsewhere = [
+  { name: 'GitHub', detail: 'Source code & experiments', url: 'https://github.com/mhyrzt' },
+  { name: 'LinkedIn', detail: 'Professional connections', url: 'https://www.linkedin.com/in/mhyrzt/' },
+  { name: 'Google Scholar', detail: 'Publications', url: 'https://scholar.google.com/citations?user=k-nwlcYAAAAJ' },
+  { name: 'Telegram', detail: 'A more informal corner', url: 'https://t.me/AutisticStuffs' },
+] as const;

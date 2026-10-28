@@ -1,0 +1,188 @@
+@layer base, utils, components, theme, layout;
+@import '@webtui/css/base.css';
+@import '@webtui/css/utils/box.css';
+@import '@webtui/css/components/typography.css';
+@import '@webtui/css/components/button.css';
+@import '@webtui/css/components/badge.css';
+@import '@webtui/css/components/separator.css';
+@import '@webtui/css/components/accordion.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
+
+/* Tokyo Night / Tokyo Night Day palette: folke/tokyonight.nvim (MIT).
+   Day text, links, and amber are darkened slightly for WCAG AA contrast.
+   Readable foreground colors replace low-contrast comment text.
+   WebTUI provides the visual primitives. This layer only supplies palette tokens
+   and an accent variant, following the library's component-variable convention. */
+@layer theme {
+  :root, [data-webtui-theme='dark'] {
+    --background0: #1a1b26;
+    --background1: #292e42;
+    --background2: #283457;
+    --background3: #414868;
+    --foreground0: #c0caf5;
+    --foreground1: #a9b1d6;
+    --foreground2: #a9b1d6;
+    --accent: #7dcfff;
+    --annotation: #e0af68;
+    --construction: #737aa2;
+    --box-border-color: #545c7e;
+    --font-family: 'IBM Plex Mono', monospace;
+    --font-size: 15px;
+    --line-height: 1.6;
+    --font-weight-normal: 400;
+    --font-weight-bold: 500;
+    color-scheme: dark;
+  }
+  [data-webtui-theme='light'] {
+    --background0: #e1e2e7;
+    --background1: #d0d5e3;
+    --background2: #c4c8da;
+    --background3: #b7c1e3;
+    --foreground0: #2b4f9b;
+    --foreground1: #3455a1;
+    --foreground2: #3455a1;
+    --accent: #005f7f;
+    --annotation: #775e35;
+    --construction: #8990b3;
+    --box-border-color: #8990b3;
+    color-scheme: light;
+  }
+  [is-='badge'][variant-='accent'] { --badge-color: var(--accent); --badge-text: var(--background0); }
+  [is-='button'][variant-='accent'] { --button-primary: var(--accent); --button-secondary: var(--background0); }
+}
+
+/* Layout is measured in character cells. Component typography, borders,
+   badges, disclosures, and controls remain the package implementations. */
+@layer layout {
+  body { word-break: normal; overflow-wrap: break-word; }
+  html { scroll-padding-top: 1lh; }
+  [hidden] { display: none !important; }
+  a { text-underline-offset: .2lh; }
+  a:not([is-~='button']) { color: var(--accent); }
+  a:not([is-~='button']):hover { color: var(--foreground0); }
+  :is(a,button,select,summary):focus-visible { outline: 2px solid var(--accent); outline-offset: .25ch; }
+  button, summary, select { cursor: pointer; }
+  button { touch-action: manipulation; }
+  ::selection { color: var(--background0); background: var(--accent); }
+  .muted { color: var(--foreground2); }
+  .skip { position: fixed; top: -4lh; left: 2ch; z-index: 10; padding: .5lh 2ch; background: var(--accent); color: var(--background0); }
+  .skip:focus { top: 1lh; }
+  .shell { max-width: 160ch; margin: auto; padding: 1lh 2ch; }
+  .site-header { display: flex; justify-content: space-between; align-items: center; gap: 2ch; padding: 0 1ch 1lh; }
+  .wordmark { display: inline-flex; align-items: center; gap: 2ch; text-decoration: none; }
+  .wordmark > span:last-child { color: var(--foreground2); }
+  .site-header nav { display: flex; align-items: center; gap: 3ch; }
+  .site-header nav > a { color: var(--foreground1); }
+  .site-header button { min-width: 7ch; }
+  .workspace { display: grid; grid-template-columns: 29ch minmax(0,1fr); gap: 2ch; align-items: start; }
+  .index-panel { position: sticky; top: 1lh; }
+  .panel-title { display: flex; align-items: baseline; justify-content: space-between; gap: 1ch; min-height: 1lh; }
+  .panel-title h1, .panel-title h2, .panel-title h3 { display: contents; }
+  .panel-title [is-='badge'] { background-color: var(--background0); }
+  .panel-body { padding: 1lh 2ch .5lh; }
+  .index-body { padding: 1lh 2ch .5lh; }
+  .index-name { color: var(--foreground0); margin-bottom: .5lh; }
+  .index-panel nav a { color: var(--foreground1); text-decoration: none; }
+  .index-panel nav a:hover { color: var(--accent); text-decoration: underline; }
+  .index-panel li { white-space: nowrap; }
+  .index-location { margin-top: 2lh; font-size: 12px; }
+  .cv-index { display: block; white-space: nowrap; }
+  .cv-picker { display: flex; flex-direction: column; gap: .5lh; margin-bottom: .5lh; width: 100%; }
+  .cv-picker select { max-width: 100%; width: 100%; padding: .25lh .5ch; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  [is-='separator'] { display: block; width: 100%; margin: .5lh 0; }
+  main { min-width: 0; }
+  .hero { display: grid; grid-template-columns: .9fr 1.1fr; gap: 1ch; align-items: stretch; }
+  .intro-panel .panel-body { display: flex; flex-direction: column; gap: 1lh; }
+  .intro-lead { color: var(--foreground0); }
+  .intro-actions { display: flex; flex-wrap: wrap; gap: 2ch; }
+  .intro-actions [is-='button'] { text-decoration: none; }
+  .intro-panel [is-='separator'] { margin: 0; }
+  .quiet-note { color: var(--annotation); }
+  .fourier { min-width: 0; }
+  .fourier-stage { position: relative; aspect-ratio: 520 / 460; margin: 0 1ch; }
+  .fourier-stage::before { content: ''; position: absolute; top: 50%; left: 2ch; right: 2ch; border-top: 1px solid var(--background2); }
+  .fourier-stage::after { content: ''; position: absolute; left: 50%; top: 1lh; bottom: 1lh; border-left: 1px solid var(--background2); z-index: -1; }
+  .glyph-fallback, canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .glyph-fallback path { fill: none; stroke: var(--accent); stroke-width: 2; }
+  .axis-label { position: absolute; top: 1lh; left: calc(50% + 1ch); color: var(--foreground2); font-size: 12px; }
+  .real-axis { top: calc(50% + .5lh); left: auto; right: 1ch; }
+  .fourier-caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1ch; margin: 0 2ch 1lh; font-size: 12px; color: var(--foreground2); }
+  .formula { color: var(--annotation); }
+  sup { font-size: .7em; }
+  select { font: inherit; background: var(--background1); color: var(--foreground0); border: 1px solid var(--box-border-color); padding: 0 .5ch; }
+  .section { margin-top: 1lh; scroll-margin-top: 1lh; }
+  .section-note { margin-bottom: 1lh; color: var(--foreground2); }
+  .project { padding: 1lh 0; }
+  .project + .project { border-top: 1px dashed var(--box-border-color); }
+  .project-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1ch; margin-bottom: 1lh; }
+  .project-heading h3 { margin-left: -1ch; }
+  .project-heading > span { font-size: 12px; }
+  .project-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4ch; }
+  .project-subtitle { color: var(--foreground0); margin-bottom: 1lh; }
+  .project details p { margin-top: 1lh; }
+  .stack { font-size: 12px; color: var(--foreground2); margin: 1lh 0; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 3ch; }
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2ch; align-items: start; }
+  .thesis .panel-body > * + * { margin-top: 1lh; }
+  .research-question { color: var(--annotation); }
+  .research-notes { padding: 1lh 1ch; }
+  .research-notes p { margin-top: 1lh; }
+  .publication-header { display: flex; flex-wrap: wrap; gap: 2ch; margin: 1lh 0; }
+  .publications article { padding: 1lh 0; }
+  .publications article + article { border-top: 1px dashed var(--box-border-color); }
+  .publication-venue, .authors { font-size: 12px; color: var(--foreground2); }
+  .publications h3 { margin: .5lh 0; }
+  .experience-list article { display: grid; grid-template-columns: 25ch minmax(0,1fr); gap: 2ch; padding: 1lh 0; }
+  .experience-list article + article { border-top: 1px dashed var(--box-border-color); }
+  .dates { font-size: 12px; color: var(--annotation); margin-top: .5lh; }
+  .role { color: var(--foreground0); margin-bottom: 1lh; }
+  .about-content { display: grid; grid-template-columns: 20ch minmax(0,1fr); gap: 3ch; }
+  .about-portrait img { display: block; width: 100%; height: auto; filter: saturate(.6); }
+  .about-portrait p { font-size: 12px; margin-top: .5lh; }
+  .about-content > div:last-child > * + * { margin-top: 1lh; }
+  .elsewhere-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3ch; }
+  .elsewhere-content p { margin-top: 1lh; }
+  .elsewhere-detail { display: block; padding-left: 2ch; font-size: 12px; color: var(--foreground2); }
+  .elsewhere-content li { margin-bottom: .5lh; }
+  footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2ch; padding: 1lh 1ch; font-size: 12px; }
+  @media (max-width: 1100px) {
+    .workspace { grid-template-columns: 29ch minmax(0,1fr); }
+    .hero { grid-template-columns: 1fr; }
+    .intro-panel .panel-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1lh 3ch; }
+    .intro-panel .intro-lead { grid-column: 1 / -1; }
+    .intro-panel [is-='separator'], .intro-panel .quiet-note, .intro-panel .quiet-note + p { display: none; }
+    .fourier-stage { max-height: 20lh; width: 100%; }
+    .project-content, .research-grid { grid-template-columns: 1fr; gap: 1lh; }
+    .experience-list article { grid-template-columns: 1fr; gap: 1lh; }
+  }
+  @media (max-width: 760px) {
+    .shell { padding: .5lh 1ch; }
+    .site-header { flex-wrap: wrap; padding: .5lh 1ch 1lh; gap: 1lh; }
+    .wordmark { gap: 1ch; }
+    .site-header nav { justify-content: space-between; width: 100%; gap: 2ch; }
+    .workspace { grid-template-columns: 1fr; gap: 1lh; }
+    .index-panel { position: relative; top: 0; }
+    .index-body { display: flex; flex-wrap: wrap; align-items: center; gap: .5lh 2ch; padding: .5lh 2ch; }
+    .index-name, .index-body > p, .index-body > [is-='separator'] { display: none; }
+    .index-panel nav { width: 100%; }
+    .index-panel ul { display: flex; flex-wrap: wrap; gap: .5lh 2ch; }
+    .index-panel li::before { content: '' !important; }
+    .cv-index { margin-top: .5lh; }
+    .panel-body { padding: 1lh 1ch .5lh; }
+    .panel-title > [is-='badge']:last-child { display: none; }
+    .intro-panel .panel-body { display: flex; }
+    .intro-panel .quiet-note, .intro-panel .quiet-note + p { display: block; }
+    .intro-panel .quiet-note + p { display: none; }
+    .hero { gap: 1lh; }
+    .fourier-stage { max-height: none; }
+    .project-content, .research-grid, .about-content, .elsewhere-content { grid-template-columns: 1fr; gap: 1lh; }
+    .about-portrait { max-width: 18ch; }
+    .experience-list article { gap: 1lh; }
+    .project-links { gap: 2ch; }
+    .section { margin-top: 1lh; }
+    footer > span > .muted { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+}

@@ -1,6 +1,10 @@
 # CV PDFs are generated locally or attached to tagged GitHub Releases.
 /CV/build/
 /CV/*.pdf
+/website/node_modules/
+/website/dist/
+/website/test-results/
+/website/playwright-report/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
