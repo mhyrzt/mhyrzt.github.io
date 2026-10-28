@@ -1,0 +1,88 @@
+name: Release CVs
+
+on:
+  push:
+    tags:
+      - 'cv-*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cv-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Validate date tag
+        run: |
+          python3 - <<'PY'
+          from datetime import datetime
+          import os
+          import re
+
+          tag = os.environ['GITHUB_REF_NAME']
+          if not re.fullmatch(r'cv-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}', tag):
+              raise SystemExit('Use a tag in the form cv-YYYY-MM-DD-HH-mm')
+          datetime.strptime(tag.removeprefix('cv-'), '%Y-%m-%d-%H-%M')
+          print(f'Releasing {tag}')
+          PY
+
+      - name: Install TeX and PDF validation tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            latexmk texlive-latex-extra texlive-fonts-extra poppler-utils
+
+      - name: Install pinned just binary
+        run: |
+          tool_dir="$RUNNER_TEMP/just"
+          mkdir -p "$tool_dir"
+          curl --fail --location --retry 3 \
+            https://github.com/casey/just/releases/download/1.59.0/just-1.59.0-x86_64-unknown-linux-musl.tar.gz \
+            --output "$tool_dir/just.tar.gz"
+          echo '409044617b6f06517c1035e55ca38c8c856ff8b650e41bc2aa1ef82d5903a23e  '"$tool_dir/just.tar.gz" | sha256sum --check
+          tar -xzf "$tool_dir/just.tar.gz" -C "$tool_dir" just
+          echo "$tool_dir" >> "$GITHUB_PATH"
+
+      - name: Build, validate, and checksum all profiles
+        working-directory: CV
+        run: just release-assets
+
+      - name: Publish PDF release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          notes="$RUNNER_TEMP/cv-release-notes.md"
+          cat > "$notes" <<'NOTES'
+          CVs built from the tagged LaTeX source:
+
+          - Engineering: mahyar-riazati-cv.pdf (2 pages)
+          - Research: mahyar-riazati-research-cv.pdf (2 pages)
+          - Full: mahyar-riazati-master-cv.pdf
+
+          Includes SHA256SUMS. All PDFs passed content, text-order, font embedding,
+          page-boundary, hyperlink-annotation, and LaTeX warning checks.
+          NOTES
+          gh release create "$GITHUB_REF_NAME" \
+            CV/build/mahyar-riazati-cv.pdf \
+            CV/build/mahyar-riazati-research-cv.pdf \
+            CV/build/mahyar-riazati-master-cv.pdf \
+            CV/build/SHA256SUMS \
+            --verify-tag --latest \
+            --title "CV ${GITHUB_REF_NAME#cv-}" \
+            --notes-file "$notes"
