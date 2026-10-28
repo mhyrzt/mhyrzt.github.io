@@ -1,4 +1,4 @@
-import { identity, projects, publications, elsewhere, cvProfiles, cvDownload } from '../content.ts';
+import { identity, projects, publications, elsewhere } from '../content.ts';
 
 export function machineReadableFiles(): Record<string, string> {
   const overview = `# ${identity.name}
@@ -26,7 +26,7 @@ ${publications.map(p => `- [${p.title}](${p.url}): ${p.authors}. ${p.venue}.`).j
 
 ## CV
 
-${cvProfiles.map(p => `- [${p.label}](${cvDownload(p.filename)})`).join('\n')}
+- [CV](${identity.cv})
 
 ## Elsewhere
 
@@ -36,15 +36,15 @@ ${elsewhere.map(p => `- [${p.name}](${p.url}): ${p.detail}`).join('\n')}
 
 > ${identity.description}
 
-This is a personal website, not a company website. The CVs contain the full formal record.
+This is a personal website, not a company website. The CV contains the full formal record.
 
 ## Overview
 
 - [Profile, projects, and publications](${identity.url}/index.md): Concise Markdown overview generated from the website's shared content.
 
-## CVs
+## CV
 
-${cvProfiles.map(p => `- [${p.label}](${cvDownload(p.filename)}): PDF from the latest tagged CV release.`).join('\n')}
+- [CV](${identity.cv}): PDF from the latest tagged CV release.
 
 ## Optional
 

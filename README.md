@@ -29,5 +29,5 @@ font and theme licenses are in `website/public/licenses/`.
 
 ## CV
 
-[CV sources and commands](CV/README.md). Timestamped tags publish three PDF variants
+[CV sources and commands](CV/README.md). Timestamped tags publish the CV PDF
 as [GitHub Releases](https://github.com/mhyrzt/mhyrzt.github.io/releases).

@@ -1,4 +1,4 @@
-import { identity, projects, publications, elsewhere, cvProfiles, cvDownload } from '../content.ts';
+import { identity, projects, publications, elsewhere } from '../content.ts';
 import glyph from '../fourier/glyph.json' with { type: 'json' };
 
 const esc = (s: string) => s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
@@ -20,7 +20,7 @@ export function renderPage(): string {
         <div class="panel-title">${badge('index')}${badge('~/mhyrzt')}</div>
         <div class="index-body"><p class="index-name">Mahyar Riazati</p><p class="muted">Software engineer<br>RL research</p><div is-="separator" aria-hidden="true"></div>
         <nav aria-label="Section index"><ul marker-="tree"><li><a href="#main">Introduction</a></li><li><a href="#work">Selected work</a></li><li><a href="#research">Research</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">Beyond the code</a></li><li><a href="#elsewhere">Elsewhere</a></li></ul></nav>
-        <div is-="separator" aria-hidden="true"></div><div class="cv-picker" hidden><label for="cv-profile">Tell me…</label><select id="cv-profile">${cvProfiles.map(p=>`<option value="${p.id}">${p.prompt}</option>`).join('')}</select></div><a id="cv-download" class="cv-index" href="${identity.cv}">↓ Engineering CV</a><noscript>${cvProfiles.slice(1).map(p=>`<a class="cv-index" href="${cvDownload(p.filename)}">↓ ${p.label}</a>`).join('')}</noscript><p class="index-location">Tehran, Iran</p></div>
+        <div is-="separator" aria-hidden="true"></div><a id="cv-download" class="cv-index" href="${identity.cv}">↓ Download CV</a><p class="index-location">Tehran, Iran</p></div>
       </aside>
       <main id="main">
         <div class="hero">

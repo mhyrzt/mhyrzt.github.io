@@ -1,16 +1,9 @@
 export const identity = {
   name: 'Mahyar Riazati',
   url: 'https://mhyrzt.github.io',
-  description: 'Software engineering, infrastructure, and reinforcement-learning research. Selected work and notes from Mahyar Riazati.',
+  description: 'Projects, research, and things I’m curious about.',
   cv: 'https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/mahyar-riazati-cv.pdf',
 };
-
-export const cvProfiles = [
-  { id: 'engineering', prompt: 'what you build', label: 'Engineering CV', filename: 'mahyar-riazati-cv.pdf' },
-  { id: 'research', prompt: 'what you research', label: 'Research CV', filename: 'mahyar-riazati-research-cv.pdf' },
-  { id: 'full', prompt: 'the whole story', label: 'Full CV', filename: 'mahyar-riazati-master-cv.pdf' },
-] as const;
-export const cvDownload = (filename: string) => `https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/${filename}`;
 
 export const projects = [
   {

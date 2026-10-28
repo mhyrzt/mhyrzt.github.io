@@ -1,4 +1,4 @@
-name: Release CVs
+name: Release CV
 
 on:
   push:
@@ -58,7 +58,7 @@ jobs:
           tar -xzf "$tool_dir/just.tar.gz" -C "$tool_dir" just
           echo "$tool_dir" >> "$GITHUB_PATH"
 
-      - name: Build, validate, and checksum all profiles
+      - name: Build, validate, and checksum the CV
         working-directory: CV
         run: just release-assets
 
@@ -69,19 +69,15 @@ jobs:
         run: |
           notes="$RUNNER_TEMP/cv-release-notes.md"
           cat > "$notes" <<'NOTES'
-          CVs built from the tagged LaTeX source:
+          CV built from the tagged LaTeX source:
 
-          - Engineering: mahyar-riazati-cv.pdf (2 pages)
-          - Research: mahyar-riazati-research-cv.pdf (2 pages)
-          - Full: mahyar-riazati-master-cv.pdf
+          - mahyar-riazati-cv.pdf (2 pages)
 
-          Includes SHA256SUMS. All PDFs passed content, text-order, font embedding,
+          Includes SHA256SUMS. The PDF passed content, text-order, font embedding,
           page-boundary, hyperlink-annotation, and LaTeX warning checks.
           NOTES
           gh release create "$GITHUB_REF_NAME" \
             CV/build/mahyar-riazati-cv.pdf \
-            CV/build/mahyar-riazati-research-cv.pdf \
-            CV/build/mahyar-riazati-master-cv.pdf \
             CV/build/SHA256SUMS \
             --verify-tag --latest \
             --title "CV ${GITHUB_REF_NAME#cv-}" \

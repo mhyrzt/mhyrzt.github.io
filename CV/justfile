@@ -1,31 +1,23 @@
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
-# Build all CV profiles into build/.
-default: all
+# Build the CV into build/.
+default: build
 
-all: engineering research full
-
-engineering:
+build:
     latexmk -pdf -outdir=build -interaction=nonstopmode -halt-on-error mahyar-riazati-cv.tex
 
-research:
-    latexmk -pdf -outdir=build -interaction=nonstopmode -halt-on-error mahyar-riazati-research-cv.tex
-
-full:
-    latexmk -pdf -outdir=build -interaction=nonstopmode -halt-on-error mahyar-riazati-master-cv.tex
-
-# Build and validate all PDFs without network access.
-check: all
+# Build and validate the PDF without network access.
+check: build
     python3 scripts/check_cv.py
 
 # Also verify public project repositories through gh.
 check-links: check
     python3 scripts/check_cv.py --links
 
-# Produce the exact assets consumed by the release workflow.
+# Produce the assets consumed by the release workflow.
 release-assets: check
-    cd build && sha256sum mahyar-riazati-cv.pdf mahyar-riazati-research-cv.pdf mahyar-riazati-master-cv.pdf > SHA256SUMS
+    cd build && sha256sum mahyar-riazati-cv.pdf > SHA256SUMS
 
-# Remove intermediate files while retaining built PDFs.
+# Remove intermediate files while retaining the built PDF.
 clean:
-    latexmk -c -outdir=build mahyar-riazati-cv.tex mahyar-riazati-research-cv.tex mahyar-riazati-master-cv.tex
+    latexmk -c -outdir=build mahyar-riazati-cv.tex

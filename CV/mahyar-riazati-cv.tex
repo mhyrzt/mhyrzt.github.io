@@ -1,10 +1,13 @@
-% Default application CV; the website links to this output.
 \documentclass[a4paper,11pt]{article}
 \usepackage{cv-style}
-\newif\ifmastercv
-\newif\ifresearchcv
-\mastercvfalse
-\researchcvfalse
 \begin{document}
-\input{profiles/engineering}
+\input{sections/contact}
+\input{sections/experience}
+\input{sections/projects}
+% Engineering work, then research and credentials.
+\newpage
+\input{sections/research}
+\input{sections/publications}
+\input{sections/education}
+\input{sections/skills}
 \end{document}

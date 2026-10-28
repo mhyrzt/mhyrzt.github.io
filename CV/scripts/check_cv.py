@@ -17,20 +17,10 @@ class Profile:
     pages: int | None = None
 
 
-PROFILES = (
-    Profile("mahyar-riazati-cv", (
-        "Professional Experience", "Selected Projects", "Research Experience",
-        "Publications", "Education", "Technical Skills",
-    ), 2),
-    Profile("mahyar-riazati-research-cv", (
-        "Research Experience", "Publications", "Education", "Selected Projects",
-        "Professional Experience", "Technical Skills",
-    ), 2),
-    Profile("mahyar-riazati-master-cv", (
-        "Professional Experience", "Research Experience", "Education",
-        "Publications", "Technical Skills", "Projects",
-    )),
-)
+CV = Profile("mahyar-riazati-cv", (
+    "Professional Experience", "Selected Projects", "Research Experience",
+    "Publications", "Education", "Technical Skills",
+), 2)
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "build"
 
@@ -60,7 +50,7 @@ def check(profile: Profile) -> set[str]:
         positions = [text.find(heading) for heading in profile.headings]
         require(all(index >= 0 for index in positions) and positions == sorted(positions),
                 f"{pdf.name}: wrong section order in {mode} extraction")
-        for expected in ("SAFER", "1,000", "3,000", "1,500", "May 2026", "XRAT", "OGym"):
+        for expected in ("SAFER", "1,000", "3,000", "1,500", "May 2026", "XRAT", "OGym", "Android Facial Landmark Detection", "Rastploy"):
             require(expected in text, f"{pdf.name}: missing extracted text: {expected}")
         require("mhyrzt.me" not in text and "Selected Training" not in text,
                 f"{pdf.name}: obsolete content")
@@ -92,9 +82,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--links", action="store_true", help="Verify GitHub repos via gh")
     args = parser.parse_args()
-    links: set[str] = set()
-    for profile in PROFILES:
-        links.update(check(profile))
+    links = check(CV)
     if args.links:
         repos = sorted({link.removeprefix("https://github.com/") for link in links
                         if re.fullmatch(r"https://github\.com/[^/]+/[^/]+", link)})

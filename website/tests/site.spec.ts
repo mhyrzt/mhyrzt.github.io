@@ -78,8 +78,7 @@ test('works without JavaScript and offers keyboard navigation', async ({browser,
   await expect(staticPage.locator('.fourier button, .fourier select, .fourier summary')).toHaveCount(0);
   await staticPage.locator('.project summary').first().click();
   await expect(staticPage.getByText(/I develop the Rust CLI/)).toBeVisible();
-  await expect(staticPage.getByRole('link',{name:'↓ Research CV'})).toBeVisible();
-  await expect(staticPage.getByRole('link',{name:'↓ Full CV'})).toBeVisible();
+  await expect(staticPage.getByRole('link',{name:'↓ Download CV'})).toBeVisible();
   await staticPage.close(); await context.close();
   await page.goto('/');
   await page.keyboard.press('Tab');
@@ -117,18 +116,12 @@ test('SEO and static endpoints refer to the current domain', async ({request}) =
 });
 
 
-test('Tell me CV chooser links to each released profile',async ({page})=>{
+test('offers one direct CV download', async ({page}) => {
   await page.goto('/');
-  const chooser = page.getByLabel('Tell me…');
-  for(const [profile,filename,label] of [
-    ['engineering','mahyar-riazati-cv.pdf','Engineering CV'],
-    ['research','mahyar-riazati-research-cv.pdf','Research CV'],
-    ['full','mahyar-riazati-master-cv.pdf','Full CV'],
-  ]) {
-    await chooser.selectOption(profile!);
-    await expect(page.locator('#cv-download')).toHaveAttribute('href',`https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/${filename}`);
-    await expect(page.locator('#cv-download')).toHaveText(`↓ ${label}`);
-  }
+  const download = page.getByRole('link', {name:'↓ Download CV'});
+  await expect(download).toHaveCount(1);
+  await expect(download).toHaveAttribute('href', 'https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/mahyar-riazati-cv.pdf');
+  await expect(page.locator('#cv-profile')).toHaveCount(0);
 });
 
 test('scroll motion respects reduced motion and keeps content readable', async ({page}) => {
