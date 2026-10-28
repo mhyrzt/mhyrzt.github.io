@@ -1,7 +1,6 @@
 export const identity = {
   name: 'Mahyar Riazati',
   url: 'https://mhyrzt.github.io',
-  email: 'mhyrzt@gmail.com',
   description: 'Software engineering, infrastructure, and reinforcement-learning research. Selected work and notes from Mahyar Riazati.',
   cv: 'https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/mahyar-riazati-cv.pdf',
 };

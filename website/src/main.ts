@@ -1,6 +1,9 @@
 import { mountFourier } from './fourier/renderer';
 import { cvProfiles, cvDownload } from './content';
 import { mountScrollMotion } from './scroll';
+import { mountContact } from './contact';
+
+mountContact();
 
 const disposeScroll = mountScrollMotion();
 if (import.meta.hot) import.meta.hot.dispose(disposeScroll);

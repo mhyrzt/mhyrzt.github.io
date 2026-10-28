@@ -20,7 +20,7 @@ export function renderPage(): string {
         <div class="panel-title">${badge('index')}${badge('~/mhyrzt')}</div>
         <div class="index-body"><p class="index-name">Mahyar Riazati</p><p class="muted">Software engineer<br>RL research</p><div is-="separator" aria-hidden="true"></div>
         <nav aria-label="Section index"><ul marker-="tree"><li><a href="#main">Introduction</a></li><li><a href="#work">Selected work</a></li><li><a href="#research">Research</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">Beyond the code</a></li><li><a href="#elsewhere">Elsewhere</a></li></ul></nav>
-        <div is-="separator" aria-hidden="true"></div><div class="cv-picker" hidden><label for="cv-profile">Tell me…</label><select id="cv-profile">${cvProfiles.map(p=>`<option value="${p.id}">${p.prompt}</option>`).join('')}</select></div><a id="cv-download" class="cv-index" href="${identity.cv}">↓ Engineering CV</a><noscript>${cvProfiles.slice(1).map(p=>`<a class="cv-index" href="${cvDownload(p.filename)}">↓ ${p.label}</a>`).join('')}</noscript><p class="index-location">Tehran, Iran<br><a href="mailto:${identity.email}">mhyrzt@gmail.com</a></p></div>
+        <div is-="separator" aria-hidden="true"></div><div class="cv-picker" hidden><label for="cv-profile">Tell me…</label><select id="cv-profile">${cvProfiles.map(p=>`<option value="${p.id}">${p.prompt}</option>`).join('')}</select></div><a id="cv-download" class="cv-index" href="${identity.cv}">↓ Engineering CV</a><noscript>${cvProfiles.slice(1).map(p=>`<a class="cv-index" href="${cvDownload(p.filename)}">↓ ${p.label}</a>`).join('')}</noscript><p class="index-location">Tehran, Iran</p></div>
       </aside>
       <main id="main">
         <div class="hero">
@@ -63,7 +63,7 @@ export function renderPage(): string {
         </section>
         <section id="elsewhere" class="section" box-="square" shear-="top" aria-labelledby="elsewhere-title">
           ${title('elsewhere-title','Elsewhere','links / contact')}
-          <div class="panel-body elsewhere-content"><div><h3>Keep in touch.</h3><p>For work, research, or an interesting conversation.</p><p>${link(`mailto:${identity.email}`,identity.email)}</p></div><ul marker-="tree">${elsewhere.map(e=>`<li>${link(e.url,e.name)}<span class="elsewhere-detail">${e.detail}</span></li>`).join('')}</ul></div>
+          <div class="panel-body elsewhere-content"><div><h3>Keep in touch.</h3><p>For work, research, or an interesting conversation.</p><p class="contact-puzzle"><code>uniq(mahyar + riazati − vowels)</code><br><span class="muted">at gmail dot com</span></p><button id="copy-email" size-="small" hidden>Solve &amp; copy email</button><p id="contact-status" role="status" aria-live="polite"></p></div><ul marker-="tree">${elsewhere.map(e=>`<li>${link(e.url,e.name)}<span class="elsewhere-detail">${e.detail}</span></li>`).join('')}</ul></div>
         </section>
         <footer><span>${badge('mhyrzt','accent')}<span class="muted"> software / research / other things</span></span>${link('https://github.com/mhyrzt/mhyrzt.github.io','Site source')}<a href="#">Top ↑</a></footer>
       </main>

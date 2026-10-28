@@ -6,7 +6,6 @@ export function machineReadableFiles(): Record<string, string> {
 > ${identity.description}
 
 Website: ${identity.url}/
-Contact: ${identity.email}
 
 ## Selected work
 

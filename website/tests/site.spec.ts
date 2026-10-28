@@ -145,3 +145,22 @@ test('scroll motion respects reduced motion and keeps content readable', async (
   await page.locator('#research').scrollIntoViewIfNeeded();
   expect(await page.locator('#research').evaluate(el=>el.getAnimations().length)).toBe(0);
 });
+
+test('email puzzle copies on request without publishing the address', async ({page,request}) => {
+  let copied = '';
+  await page.exposeFunction('captureCopy', (value: string) => { copied = value; });
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator,'clipboard',{value:{writeText:(value:string)=>(window as unknown as {captureCopy:(v:string)=>Promise<void>}).captureCopy(value)}});
+  });
+  await page.goto('/');
+  for (const path of ['/','/index.md','/llms.txt']) {
+    const text = await (await request.get(path)).text();
+    expect(text).not.toMatch(/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i);
+    expect(text).not.toContain('mailto:');
+  }
+  await page.getByRole('button',{name:'Solve & copy email'}).click();
+  await expect(page.getByRole('status')).toHaveText('Puzzle solved. Email copied. ツ');
+  expect(copied.split('@')[0]).toBe('mhyrzt');
+  expect(copied.split('@')[1]).toBe('gmail.com');
+  expect(await page.locator('body').innerText()).not.toContain(copied);
+});
