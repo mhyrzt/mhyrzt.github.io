@@ -20,7 +20,7 @@ export function renderPage(): string {
         <div class="panel-title">${badge('index')}${badge('~/mhyrzt')}</div>
         <div class="index-body"><p class="index-name">Mahyar Riazati</p><p class="muted">Software engineer<br>RL research</p><div is-="separator" aria-hidden="true"></div>
         <nav aria-label="Section index"><ul marker-="tree"><li><a href="#main">Introduction</a></li><li><a href="#work">Selected work</a></li><li><a href="#research">Research</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">Beyond the code</a></li><li><a href="#elsewhere">Elsewhere</a></li></ul></nav>
-        <div is-="separator" aria-hidden="true"></div><a id="cv-download" class="cv-index" href="${identity.cv}">↓ Download CV</a><p class="index-location">Tehran, Iran</p></div>
+        <div is-="separator" aria-hidden="true"></div><a id="cv-download" class="cv-index" href="${identity.cv}">wget mahyar-riazati-cv.pdf</a><p class="index-location">Tehran, Iran</p></div>
       </aside>
       <main id="main">
         <div class="hero">
