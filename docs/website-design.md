@@ -37,6 +37,12 @@ Day text, links, and amber annotations are darkened slightly for WCAG AA contras
 The Fourier reconstruction is the one substantial
 animated feature.
 
+Anchor navigation uses native smooth scrolling, with brief, once-only section
+entrances through the Web Animations API. Wheel and touch input remain native.
+Reduced-motion changes cancel entrances immediately. The scrollbar remains a
+real browser control, styled with WebTUI theme tokens and character-cell sizing;
+the library does not supply a scrollbar component.
+
 ## Content evidence
 
 The local `CV/sections/` files supply roles, dates, publication metadata, SAFER

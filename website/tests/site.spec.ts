@@ -130,3 +130,18 @@ test('Tell me CV chooser links to each released profile',async ({page})=>{
     await expect(page.locator('#cv-download')).toHaveText(`↓ ${label}`);
   }
 });
+
+test('scroll motion respects reduced motion and keeps content readable', async ({page}) => {
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.goto('/');
+  expect(await page.locator('html').evaluate(el=>getComputedStyle(el).scrollBehavior)).toBe('smooth');
+  const about = page.locator('#about');
+  await about.scrollIntoViewIfNeeded();
+  await expect.poll(()=>about.evaluate(el=>el.getAnimations().length)).toBeGreaterThan(0);
+  expect(await about.evaluate(el=>getComputedStyle(el).opacity)).toBe('1');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await expect.poll(()=>about.evaluate(el=>el.getAnimations().length)).toBe(0);
+  expect(await page.locator('html').evaluate(el=>getComputedStyle(el).scrollBehavior)).toBe('auto');
+  await page.locator('#research').scrollIntoViewIfNeeded();
+  expect(await page.locator('#research').evaluate(el=>el.getAnimations().length)).toBe(0);
+});

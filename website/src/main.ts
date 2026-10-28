@@ -1,5 +1,9 @@
 import { mountFourier } from './fourier/renderer';
 import { cvProfiles, cvDownload } from './content';
+import { mountScrollMotion } from './scroll';
+
+const disposeScroll = mountScrollMotion();
+if (import.meta.hot) import.meta.hot.dispose(disposeScroll);
 
 const cvSelect = document.querySelector<HTMLSelectElement>('#cv-profile');
 const cvLink = document.querySelector<HTMLAnchorElement>('#cv-download');

@@ -56,7 +56,32 @@
    badges, disclosures, and controls remain the package implementations. */
 @layer layout {
   body { word-break: normal; overflow-wrap: break-word; }
-  html { scroll-padding-top: 1lh; }
+  html {
+    scroll-padding-top: 1lh;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--construction) var(--background0);
+  }
+  /* WebTUI has no scrollbar primitive. Retain the real browser scrollbar,
+     using its theme variables and one-character track instead of a fake control. */
+  @supports selector(::-webkit-scrollbar) {
+    html { scrollbar-width: auto; scrollbar-color: auto; }
+    ::-webkit-scrollbar { width: 1ch; height: 1ch; }
+    ::-webkit-scrollbar-track { background: var(--background0); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--construction);
+      border: 2px solid var(--background0);
+      min-height: 3lh;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    ::-webkit-scrollbar-corner { background: var(--background0); }
+  }
+  @media (forced-colors: active) {
+    html { scrollbar-color: auto; }
+    ::-webkit-scrollbar-thumb { background: ButtonText; border-color: Canvas; }
+    ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner { background: Canvas; }
+  }
   [hidden] { display: none !important; }
   a { text-underline-offset: .2lh; }
   a:not([is-~='button']) { color: var(--accent); }
