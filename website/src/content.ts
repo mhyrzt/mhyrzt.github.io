@@ -7,14 +7,14 @@ export const identity = {
 
 export const projects = [
   {
-    name: 'XRAT', field: 'Networking / systems', subtitle: 'Test and manage proxy connections.',
+    name: 'XRAT', field: 'Networking / systems', subtitle: 'A Swiss Army knife for proxy connections.',
     description: 'XRAT brings proxy configuration, connection testing, and runtime management into one toolkit. It helps find usable connections and keep track of how they perform.',
     contribution: 'I develop the Rust CLI, terminal interface, web interface, and SDK. The toolkit parses subscriptions, tests HTTP latency concurrently, stores measurement history, and supervises proxy processes with health checks and automatic rotation.',
     stack: 'Rust · CLI / TUI / Web · Xray-core · sing-box',
     source: 'https://github.com/mhyrzt/xrat', docs: 'https://mhyrzt.github.io/xrat/',
   },
   {
-    name: 'OGym', field: 'Reinforcement learning / tooling', subtitle: 'Reinforcement-learning environments in Rust.',
+    name: 'OGym', field: 'Reinforcement learning / tooling', subtitle: 'Reinforcement-learning environments, but in Rust.',
     description: 'OGym provides environments for reinforcement-learning experiments, from classic control tasks to physics simulations. A shared interface and typed action and observation spaces make them usable across different implementations.',
     contribution: 'I develop the environment interfaces, batch execution, and implementations using native Rust, Rapier, and MuJoCo. The project also includes benchmarks against Gymnasium, with the methodology and raw measurements available alongside the results.',
     stack: 'Rust · Typed spaces · Rapier · MuJoCo',

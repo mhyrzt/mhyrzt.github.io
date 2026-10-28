@@ -78,7 +78,7 @@ test('works without JavaScript and offers keyboard navigation', async ({browser,
   await expect(staticPage.locator('.fourier button, .fourier select, .fourier summary')).toHaveCount(0);
   await staticPage.locator('.project summary').first().click();
   await expect(staticPage.getByText(/I develop the Rust CLI/)).toBeVisible();
-  await expect(staticPage.getByRole('link',{name:'wget mahyar-riazati-cv.pdf'})).toBeVisible();
+  await expect(staticPage.getByRole('link',{name:'$ wget mhyrzt-cv.pdf'})).toBeVisible();
   await staticPage.close(); await context.close();
   await page.goto('/');
   await page.keyboard.press('Tab');
@@ -118,7 +118,7 @@ test('SEO and static endpoints refer to the current domain', async ({request}) =
 
 test('offers one direct CV download', async ({page}) => {
   await page.goto('/');
-  const download = page.getByRole('link', {name:'wget mahyar-riazati-cv.pdf'});
+  const download = page.getByRole('link', {name:'$ wget mhyrzt-cv.pdf'});
   await expect(download).toHaveCount(1);
   await expect(download).toHaveAttribute('href', 'https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/mahyar-riazati-cv.pdf');
   await expect(page.locator('#cv-profile')).toHaveCount(0);
