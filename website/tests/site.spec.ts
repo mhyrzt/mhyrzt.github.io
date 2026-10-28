@@ -117,11 +117,24 @@ test('SEO and static endpoints refer to the current domain', async ({request}) =
 
 
 test('offers one direct CV download', async ({page}) => {
+  await page.route('https://api.github.com/repos/mhyrzt/mhyrzt.github.io/releases/latest', route =>
+    route.fulfill({json: {published_at: '2026-10-28T18:08:00Z'}}));
   await page.goto('/');
   const download = page.getByRole('link', {name:'$ wget mhyrzt-cv.pdf'});
   await expect(download).toHaveCount(1);
   await expect(download).toHaveAttribute('href', 'https://github.com/mhyrzt/mhyrzt.github.io/releases/latest/download/mahyar-riazati-cv.pdf');
   await expect(page.locator('#cv-profile')).toHaveCount(0);
+  await expect(page.locator('#cv-updated')).toHaveText('Last updated: 28 Oct 2026');
+  await expect(page.locator('#cv-updated')).toBeVisible();
+  await expect(page.locator('#cv-updated time')).toHaveAttribute('datetime', '2026-10-28T18:08:00.000Z');
+});
+
+test('CV download works when release metadata is unavailable', async ({page}) => {
+  await page.route('https://api.github.com/repos/mhyrzt/mhyrzt.github.io/releases/latest', route =>
+    route.fulfill({status: 403, json: {message: 'API rate limit exceeded'}}));
+  await page.goto('/');
+  await expect(page.getByRole('link', {name:'$ wget mhyrzt-cv.pdf'})).toBeVisible();
+  await expect(page.locator('#cv-updated')).toBeHidden();
 });
 
 test('scroll motion respects reduced motion and keeps content readable', async ({page}) => {

@@ -113,6 +113,7 @@
   .index-panel li { white-space: nowrap; }
   .index-location { margin-top: 2lh; font-size: 12px; }
   .cv-index { display: block; overflow-wrap: anywhere; }
+  #cv-updated { display: block; margin-top: .25lh; font-size: 12px; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
   [is-='separator'] { display: block; width: 100%; margin: .5lh 0; }
   main { min-width: 0; }
@@ -195,6 +196,7 @@
     .index-panel ul { display: flex; flex-wrap: wrap; gap: .5lh 2ch; }
     .index-panel li::before { content: '' !important; }
     .cv-index { margin-top: .5lh; }
+    .cv-download-block { width: 100%; }
     .panel-body { padding: 1lh 1ch .5lh; }
     .panel-title > [is-='badge']:last-child { display: none; }
     .intro-panel .panel-body { display: flex; }

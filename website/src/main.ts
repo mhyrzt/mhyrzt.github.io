@@ -4,6 +4,28 @@ import { mountScrollMotion } from './scroll';
 const disposeScroll = mountScrollMotion();
 if (import.meta.hot) import.meta.hot.dispose(disposeScroll);
 
+async function showCvReleaseDate() {
+  const label = document.querySelector<HTMLElement>('#cv-updated');
+  const time = label?.querySelector('time');
+  if (!label || !time) return;
+  try {
+    const response = await fetch('https://api.github.com/repos/mhyrzt/mhyrzt.github.io/releases/latest', {
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!response.ok) return;
+    const release: { published_at?: unknown } = await response.json();
+    if (typeof release.published_at !== 'string') return;
+    const date = new Date(release.published_at);
+    if (!Number.isFinite(date.getTime())) return;
+    time.dateTime = date.toISOString();
+    time.textContent = new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+    }).format(date);
+    label.hidden = false;
+  } catch { /* The CV download stays available if release metadata cannot load. */ }
+}
+void showCvReleaseDate();
+
 const theme = document.querySelector<HTMLButtonElement>('#theme');
 function updateThemeButton() {
   if (!theme) return;
