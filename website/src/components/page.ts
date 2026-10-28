@@ -63,7 +63,7 @@ export function renderPage(): string {
         </section>
         <section id="elsewhere" class="section" box-="square" shear-="top" aria-labelledby="elsewhere-title">
           ${title('elsewhere-title','Elsewhere','links / contact')}
-          <div class="panel-body elsewhere-content"><div><h3>Keep in touch.</h3><p>For work, research, or an interesting conversation.</p><p class="contact-puzzle"><code>uniq(mahyar + riazati − vowels)</code><br><span class="muted">at gmail dot com</span></p><button id="copy-email" size-="small" hidden>Solve &amp; copy email</button><p id="contact-status" role="status" aria-live="polite"></p></div><ul marker-="tree">${elsewhere.map(e=>`<li>${link(e.url,e.name)}<span class="elsewhere-detail">${e.detail}</span></li>`).join('')}</ul></div>
+          <div class="panel-body elsewhere-content"><div><h3>Keep in touch.</h3><p>For work, research, or an interesting conversation.</p><p class="contact-puzzle"><code>uniq(FIRST_NAME + LAST_NAME − vowels)</code><br><span class="muted">lowercase · at gmail dot com</span></p></div><ul marker-="tree">${elsewhere.map(e=>`<li>${link(e.url,e.name)}<span class="elsewhere-detail">${e.detail}</span></li>`).join('')}</ul></div>
         </section>
         <footer><span>${badge('mhyrzt','accent')}<span class="muted"> software / research / other things</span></span>${link('https://github.com/mhyrzt/mhyrzt.github.io','Site source')}<a href="#">Top ↑</a></footer>
       </main>
