@@ -2,24 +2,25 @@
 
 Personal website built with Vite, TypeScript, Bun, and [WebTUI](https://webtui.ironclad.sh/).
 Tokyo Night themes, static HTML, and a Fourier 𝓜 visualization.
+Includes social previews, profile structured data, sitemap, and generated `llms.txt` / `index.md`.
 
 ## Development
 
-Requires Bun 1.3.14:
+Requires Bun 1.3.14 and just:
 
 ```sh
 cd website
-bun install --frozen-lockfile
-bun run dev
+just install
+just dev
 ```
 
 ```sh
-bun test src
-bun run build                 # includes type checking
-bunx playwright install chromium
-bun run test:browser
-bun run preview
+just install-browsers          # once, for browser checks
+just check                    # math tests, build, browser tests
+just preview
 ```
+
+Run `just` to list commands, including `glyph` and `social` asset generation.
 
 GitHub Actions validates changes and deploys `website/dist/` from `main` to Pages.
 Content lives in `website/src/content.ts` and `website/src/components/page.ts`.

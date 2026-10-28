@@ -73,3 +73,11 @@ narrow-phone/tablet overflow, keyboard access, no-JavaScript content, reduced mo
 theme persistence, Canvas output, browser errors, metadata, and automated axe rules
 in both themes. This is not a claim of complete Safari, Firefox, screen-reader, or
 live-deployment verification. Those are distinct evidence boundaries.
+
+## Discovery
+
+Open Graph and Twitter metadata point to a 1200×630 PNG. Canonical URLs, sitemap,
+robots.txt, and ProfilePage/Person JSON-LD use the current origin. The error page
+has `noindex`. The build generates `llms.txt` and `index.md` from shared content,
+with discovery links in the HTML head. These follow the llmstxt.org proposal;
+they do not guarantee crawler adoption, search rankings, or AI citations.

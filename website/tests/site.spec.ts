@@ -92,12 +92,28 @@ test('SEO and static endpoints refer to the current domain', async ({request}) =
   const html = await (await request.get('/')).text();
   expect(html).toContain('rel="canonical" href="https://mhyrzt.github.io/"');
   expect(html).toContain('application/ld+json');
+  const schema = JSON.parse(html.match(/<script type="application\/ld\+json">(.+?)<\/script>/)![1]!);
+  expect(schema['@type']).toBe('ProfilePage');
+  expect(schema.mainEntity['@type']).toBe('Person');
+  expect(schema.mainEntity.name).toBe('Mahyar Riazati');
+  expect(html).toContain('name="twitter:card" content="summary_large_image"');
+  expect(html).toContain('property="og:image" content="https://mhyrzt.github.io/social.png"');
+  expect(html).toContain('rel="describedby" href="https://mhyrzt.github.io/llms.txt"');
   expect(html).not.toContain('mhyrzt.me');
   expect(html).not.toContain('googletagmanager');
   expect(html).toContain('releases/latest/download/mahyar-riazati-cv.pdf');
-  for (const path of ['/robots.txt','/sitemap.xml','/favicon.svg','/portrait.webp','/social.png','/404.html']) {
+  for (const path of ['/robots.txt','/sitemap.xml','/favicon.svg','/portrait.webp','/social.png','/404.html','/llms.txt','/index.md']) {
     expect((await request.get(path)).status()).toBe(200);
   }
+  const image = await (await request.get('/social.png')).body();
+  expect(image.readUInt32BE(16)).toBe(1200);
+  expect(image.readUInt32BE(20)).toBe(630);
+  const llms = await (await request.get('/llms.txt')).text();
+  expect(llms.startsWith('# Mahyar Riazati')).toBe(true);
+  expect(llms).toContain('https://mhyrzt.github.io/index.md');
+  const markdown = await (await request.get('/index.md')).text();
+  expect(markdown).toContain('https://github.com/mhyrzt/xrat');
+  expect(markdown).toContain('https://doi.org/10.1016/j.ins.2024.121479');
 });
 
 
