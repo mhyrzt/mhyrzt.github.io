@@ -1,0 +1,31 @@
+\ProvidesPackage{cv-style}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage[a4paper,margin=1.8cm]{geometry}
+\usepackage{enumitem,titlesec,xcolor,needspace}
+\usepackage[hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\definecolor{accent}{HTML}{243F50}
+\hypersetup{pdftitle={Mahyar Riazati - Curriculum Vitae},pdfauthor={Mahyar Riazati}}
+\pagestyle{empty}
+\AtBeginDocument{\fontsize{10.5}{12.5}\selectfont}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\raggedright
+\urlstyle{same}
+\titleformat{\section}{\fontsize{12.5}{14}\selectfont\bfseries\color{accent}}{}{0pt}{}[\color{accent!45}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\setlist[itemize]{leftmargin=1.2em,itemsep=2pt,topsep=3pt,parsep=0pt}
+\newcommand{\entry}[4]{%
+  \Needspace{4\baselineskip}%
+  \textbf{#1}\hfill #2\par\nopagebreak
+  \textit{#3}\hfill\textit{#4}\par\nopagebreak}
+\newcommand{\role}[2]{%
+  \Needspace{3\baselineskip}%
+  \textit{#1}\hfill\textit{#2}\par\nopagebreak}
+\newcommand{\project}[2]{%
+  \Needspace{4\baselineskip}%
+  \textbf{#1}\hfill\href{#2}{GitHub}\par\nopagebreak}
+\newenvironment{projectentry}[2]{\begin{samepage}\project{#1}{#2}}{\par\end{samepage}}
+\newcommand{\skill}[2]{\textbf{#1:} #2\par}

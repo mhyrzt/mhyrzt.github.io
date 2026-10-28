@@ -1,0 +1,94 @@
+\ifmastercv
+  \Needspace{12\baselineskip}
+  \section{Projects}
+\else
+  \section{Selected Projects}
+\fi
+\begin{projectentry}{OGym --- Rust reinforcement-learning environments}{https://github.com/mhyrzt/ogym}
+Developed typed environment, action, and observation abstractions with batch execution across native Rust, Rapier, and MuJoCo backends.
+\ifmastercv\else Maintained reproducible benchmarks against Gymnasium environments.\fi
+\ifmastercv
+\begin{itemize}
+  \item Implemented classic-control and toy-text environments behind a shared interface, with optional physics backends and native dependencies.
+  \item Maintained a benchmark suite against equivalent Gymnasium environments, with published methodology and raw measurements.
+\end{itemize}
+\fi
+
+\end{projectentry}
+
+\begin{projectentry}{XRAT --- proxy management and runtime tooling}{https://github.com/mhyrzt/xrat}
+Developed a Rust CLI, TUI, and web interface for proxy configuration, concurrent latency testing, daemon-supervised connections, and health-based rotation.
+\ifmastercv\else Exposed parsing, configuration generation, and probing through a reusable Rust SDK.\fi
+\ifmastercv
+\begin{itemize}
+  \item Built configuration parsing and runtime generation for Xray-core, V2Ray-core, and sing-box, with persistent configuration and measurement history.
+  \item Developed reusable Rust SDK components for parsing, configuration generation, and probing; maintained packaging and release workflows across operating systems.
+  \item Implemented runtime controls for managed proxy processes and optional TUN routing; Windows support remains experimental.
+\end{itemize}
+\fi
+
+\end{projectentry}
+
+\ifresearchcv\else
+\begin{projectentry}{Mahfel --- real-time meetings and collaboration}{https://github.com/mhyrzt/mahfel}
+Developed Rust services and a Next.js interface for WebRTC meetings and collaboration, integrating media, signaling, background jobs, and shared storage.
+\ifmastercv
+\begin{itemize}
+  \item Worked across API, media, and worker components using mediasoup, PostgreSQL, Redis, RabbitMQ, and S3-compatible storage.
+  \item Implemented session interactions, recording workflows, SSO integration, and recovery behavior; prepared contributor-facing documentation for the self-hosted project.
+\end{itemize}
+\fi
+\end{projectentry}
+\fi
+
+\ifmastercv
+\Needspace{5\baselineskip}
+\begin{samepage}
+\textbf{Ara --- AI-assisted educational authoring}\hfill\textit{RastAI project}\par\nopagebreak
+Implemented agent-assisted authoring and review workflows integrated with the LMS through MCP.
+\begin{itemize}
+  \item Developed learning-analytics and grading-proposal workflows with persistent reports, scoped access, and instructor review before applying changes.
+  \item Worked on authenticated uploads, artifact previews, background agent execution, and integration checks.
+\end{itemize}
+\end{samepage}
+\fi
+\ifresearchcv
+  \def\showexrl{1}
+\else
+  \ifmastercv\def\showexrl{1}\else\def\showexrl{0}\fi
+\fi
+\ifnum\showexrl=1
+\begin{projectentry}{Ex-RL Virtual Lab}{https://github.com/epsilonlog/Ex-RL-virtual-lab}
+Co-developed reusable reinforcement-learning experiments and a user-facing experiment pipeline with the Sharif research team; supported shared code organization and experimental analysis.
+\end{projectentry}
+\fi
+\ifmastercv
+\begin{projectentry}{Android Facial Landmark Detection}{https://github.com/mhyrzt/Dlib-Android-Face-Landmark}
+Built an Android application for 68-point facial landmark detection, integrating dlib's C++ implementation with Java through the Android NDK, CMake, and OpenCV.
+
+\end{projectentry}
+
+\begin{projectentry}{Self-play Reinforcement-Learning Chess}{https://github.com/mhyrzt/Simple-MADRL-Chess}
+Implemented a Pygame chess environment and PPO self-play experiments with separate-agent and shared-policy configurations; the environment omits castling and en passant.
+
+\end{projectentry}
+
+\begin{projectentry}{Koch Snowflake}{https://github.com/mhyrzt/KochSnowFlake}
+Developed a React/TypeScript fractal visualization with interactive iteration and line-length controls.
+
+\end{projectentry}
+
+\begin{projectentry}{Elementary Cellular Automaton}{https://github.com/mhyrzt/elementary-cellular-automaton}
+Built a React visualization for exploring elementary cellular automata with configurable rules and grid sizes.
+
+\end{projectentry}
+
+\begin{projectentry}{Unity MountainCar 2D}{https://github.com/mhyrzt/UnityMountainCar2D}
+Developed a configurable MountainCar environment with Unity ML-Agents, including adjustable goal position, gravity, and vehicle properties.
+
+\end{projectentry}
+
+\begin{projectentry}{ALOHASIM}{https://github.com/mhyrzt/ALOHASIM}
+Simulated the ALOHA protocol and visualized node interactions with Pygame for a telecommunications course project.
+\end{projectentry}
+\fi

@@ -1,3 +1,7 @@
+# CV PDFs are generated locally or attached to tagged GitHub Releases.
+/CV/build/
+/CV/*.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
