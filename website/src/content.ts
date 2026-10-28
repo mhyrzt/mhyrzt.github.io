@@ -7,16 +7,16 @@ export const identity = {
 
 export const projects = [
   {
-    name: 'XRAT', field: 'Networking / systems', subtitle: 'A little more control over the connection.',
-    description: 'Importing proxy configurations is the easy part. Finding a working connection, understanding failures, and keeping it running is the problem XRAT addresses.',
-    contribution: 'I develop the Rust CLI, TUI, web interface, and reusable SDK: subscription parsing, concurrent HTTP latency probes, persistent measurements, and daemon-supervised connections with health-based rotation.',
+    name: 'XRAT', field: 'Networking / systems', subtitle: 'Test and manage proxy connections.',
+    description: 'XRAT brings proxy configuration, connection testing, and runtime management into one toolkit. It helps find usable connections and keep track of how they perform.',
+    contribution: 'I develop the Rust CLI, terminal interface, web interface, and SDK. The toolkit parses subscriptions, tests HTTP latency concurrently, stores measurement history, and supervises proxy processes with health checks and automatic rotation.',
     stack: 'Rust · CLI / TUI / Web · Xray-core · sing-box',
     source: 'https://github.com/mhyrzt/xrat', docs: 'https://mhyrzt.github.io/xrat/',
   },
   {
-    name: 'OGym', field: 'Reinforcement learning / tooling', subtitle: 'Environments with explicit boundaries.',
-    description: 'A Rust-native environment library for reinforcement-learning experiments, with typed action and observation spaces instead of untyped adapters.',
-    contribution: 'I implemented shared environment abstractions, batch execution, and environments across native Rust, Rapier, and MuJoCo backends. The benchmark suite includes methodology and raw measurements for comparisons with Gymnasium.',
+    name: 'OGym', field: 'Reinforcement learning / tooling', subtitle: 'Reinforcement-learning environments in Rust.',
+    description: 'OGym provides environments for reinforcement-learning experiments, from classic control tasks to physics simulations. A shared interface and typed action and observation spaces make them usable across different implementations.',
+    contribution: 'I develop the environment interfaces, batch execution, and implementations using native Rust, Rapier, and MuJoCo. The project also includes benchmarks against Gymnasium, with the methodology and raw measurements available alongside the results.',
     stack: 'Rust · Typed spaces · Rapier · MuJoCo',
     source: 'https://github.com/mhyrzt/ogym', docs: 'https://mhyrzt.github.io/ogym/',
   },
