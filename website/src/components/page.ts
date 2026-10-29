@@ -18,14 +18,14 @@ export function renderPage(): string {
     <div class="workspace">
       <aside class="index-panel" box-="square" shear-="top" aria-label="Site index">
         <div class="panel-title">${badge('index')}${badge('~/mhyrzt')}</div>
-        <div class="index-body"><p class="index-name">Mahyar Riazati</p><p class="muted">Software engineer<br>RL research</p><div is-="separator" aria-hidden="true"></div>
-        <nav aria-label="Section index"><ul marker-="tree"><li><a href="#main">Introduction</a></li><li><a href="#work">Selected work</a></li><li><a href="#research">Research</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">Beyond the code</a></li><li><a href="#elsewhere">Elsewhere</a></li></ul></nav>
+        <div class="index-body"><p class="index-name">Mahyar Riazati</p><p class="muted">yet another nerd</p><div is-="separator" aria-hidden="true"></div>
+        <nav aria-label="Section index"><ul class="link-tree" role="list"><li><a href="#main">Introduction</a></li><li><a href="#work">Selected work</a></li><li><a href="#research">Research</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">Beyond the code</a></li><li><a href="#elsewhere">Elsewhere</a></li></ul></nav>
         <div is-="separator" aria-hidden="true"></div><div class="cv-download-block"><a id="cv-download" class="cv-index" href="${identity.cv}">$ wget mhyrzt-cv.pdf</a><small id="cv-updated" class="muted" hidden>Last updated: <time></time></small></div><p class="index-location">Tehran, Iran</p></div>
       </aside>
       <main id="main">
         <div class="hero">
           <section class="intro-panel" box-="square" shear-="top" aria-labelledby="intro-title">
-            <div class="panel-title"><h1 id="intro-title">${badge('Mahyar Riazati.')}</h1>${badge('hello')}</div>
+            <div class="panel-title"><h1 id="intro-title">${badge('Introduction')}</h1>${badge('hello')}</div>
             <div class="panel-body"><p class="intro-lead">I work on web applications, developer tools, and reinforcement-learning research.</p><p>I like understanding how things work, then building something useful with that understanding.</p><p>What interests me most is the gap between something that works in an experiment and something that holds up in the real world—and the engineering it takes to bridge that gap.</p><div class="intro-actions"><a is-="button" href="#work">Selected work ↓</a></div>
             <div is-="separator" aria-hidden="true"></div><p class="quiet-note">I love computers ツ</p><p class="muted">That was the old site.<br>There’s a little more here now.</p></div>
           </section>
@@ -59,11 +59,11 @@ export function renderPage(): string {
         </section>
         <section id="about" class="section" box-="square" shear-="top" aria-labelledby="about-title">
           ${title('about-title','Beyond the code','a few other interests')}
-          <div class="panel-body about-content"><div class="about-portrait"><img src="/portrait.webp" alt="Mahyar Riazati" width="480" height="480" loading="lazy"><p class="muted">Mahyar / Tehran</p></div><div><p>I’m just a fully grown, mostly functional computerphile kid.</p><p>A compulsive learner with an inconvenient amount of curiosity about the entire computing universe—from high-level abstractions all the way down to PN junctions.</p><p>My journey started with electronics, and although software eventually took over, I’ve never been particularly interested in respecting the boundary between hardware and software.</p><p>Outside of that orbit: mathematics, theoretical computer science, philosophy, video games, anime, and manga. I have a soft spot for cyberpunk, science fiction, and the questions they raise about technology and what it means to be human.</p><p>This is my little corner of the internet. Like most things I build, it’s perpetually a work in progress.</p><p>There’s a more informal corner on ${link('https://t.me/AutisticStuffs','Telegram')}.</p></div></div>
+          <div class="panel-body about-content"><div class="about-portrait"><img src="/portrait.webp" alt="Mahyar Riazati" width="480" height="480" loading="lazy"><p class="muted">Mahyar / Tehran</p></div><div><p>I’m just a fully grown, mostly functional computerphile kid.</p><p>A compulsive learner with an inconvenient amount of curiosity about the entire computing universe—from high-level abstractions all the way down to PN junctions.</p><p>My journey started with electronics, and although software eventually took over, I’ve never been particularly interested in respecting the boundary between hardware and software.</p><p>Outside of that orbit: mathematics, theoretical computer science, philosophy, video games, anime, and manga. I have a soft spot for cyberpunk, science fiction, and the questions they raise about technology and what it means to be human.</p><p>This is my little corner of the internet. Like most things I build, it’s perpetually a work in progress.</p></div></div>
         </section>
         <section id="elsewhere" class="section" box-="square" shear-="top" aria-labelledby="elsewhere-title">
           ${title('elsewhere-title','Elsewhere','links / contact')}
-          <div class="panel-body elsewhere-content"><div><h3>Keep in touch.</h3><p>For work, research, or an interesting conversation.</p><p class="contact-puzzle"><code>uniq(FIRST_NAME + LAST_NAME − vowels)</code><br><span class="muted">lowercase · at gmail dot com</span></p></div><ul marker-="tree">${elsewhere.map(e=>`<li>${link(e.url,e.name)}<span class="elsewhere-detail">${e.detail}</span></li>`).join('')}</ul></div>
+          <div class="panel-body elsewhere-content"><div><h3>Keep in touch.</h3><p>For work, research, or an interesting conversation.</p><p class="contact-puzzle"><code>uniq(FIRST_NAME + LAST_NAME − vowels)</code><br><span class="muted">lowercase · at gmail dot com</span></p></div><ul class="link-tree" role="list">${elsewhere.map(e=>`<li>${link(e.url,e.name)}<span class="elsewhere-detail">${e.detail}</span></li>`).join('')}</ul></div>
         </section>
         <footer><span>${badge('mhyrzt','accent')}<span class="muted"> software / research / other things</span></span>${link('https://github.com/mhyrzt/mhyrzt.github.io','Site source')}<a href="#">Top ↑</a></footer>
       </main>

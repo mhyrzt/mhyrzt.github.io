@@ -8,7 +8,7 @@ test('static content, navigation, Fourier rendering, theme, and layout', async (
   const response = await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
   expect(response?.status()).toBe(200);
-  await expect(page.getByRole('heading', { name: 'Mahyar Riazati.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Introduction', exact: true })).toBeVisible();
   await page.locator('.fourier').scrollIntoViewIfNeeded();
   await expect(page.locator('.fourier')).toHaveAttribute('data-animation', 'running');
   await page.screenshot({path:`test-results/${info.project.name}-initial.png`});
@@ -48,11 +48,19 @@ test('static content, navigation, Fourier rendering, theme, and layout', async (
   expect(errors).toEqual([]);
 });
 
-test('narrow phones and tablets have no horizontal overflow', async ({page}) => {
-  for (const width of [320,375,768,1024]) {
+test('phones and tablets have readable layouts and usable navigation', async ({page}) => {
+  for (const width of [320,375,390,540,760,768,1000,1024]) {
     await page.setViewportSize({width,height:900});
     await page.goto('/');
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.evaluate(() => document.fonts.ready);
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), {message: `No horizontal overflow at ${width}px`}).toBe(true);
+    if (width <= 1000) {
+      const targets = await page.locator('.index-panel nav a, .site-header nav a, .site-header button, #cv-download').evaluateAll(els => els.map(el => el.getBoundingClientRect().height));
+      expect(targets.every(height => height >= 44)).toBe(true);
+      const index = await page.locator('.index-panel').boundingBox();
+      const main = await page.locator('main').boundingBox();
+      expect(index!.y + index!.height).toBeLessThanOrEqual(main!.y);
+    }
   }
 });
 
